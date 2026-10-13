@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Metadata -->
+  <title>Mite Chess Engine Benchmarks — 2,600 Verified Tournament Games | Viraj Ravani</title>
+  <meta name="description" content="Official tournament benchmark report for Mite Chess Engine by Viraj Ravani: 2,600 verified games across 13 series against Stockfish 2000, TSCP, and Fairy-Max with 78.5% score.">
+  <meta name="keywords" content="Mite Chess Engine Benchmarks, Mite Chess Engine, Viraj Ravani, Mite Chess Engine by Viraj Ravani, Stockfish 2000 Elo, TSCP Chess Benchmark, Fairy-Max Benchmark, UCI Chess Engine Benchmarks, Cutechess Automated Testing, Chess Engine Deliberation Scaling">
+  <meta name="author" content="Viraj Ravani">
+  <meta name="creator" content="Viraj Ravani">
+  <meta name="publisher" content="Viraj Ravani">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.virajravani.in/mite/mite-benchmarks.html">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/png" href="mite-assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="mite-assets/images/mite_logo.png">
+  <meta name="theme-color" content="#205036">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mite Benchmarks">
+  <meta name="application-name" content="Mite Chess Engine Benchmarks">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="Mite Chess Engine">
+  <meta property="og:title" content="Mite Chess Engine Benchmarks — 2,600 Verified Tournament Games">
+  <meta property="og:description" content="Complete tournament benchmark report for Mite chess engine: 2,600 verified games against Stockfish (2000 Elo), TSCP, and Fairy-Max with 78.5% score.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.virajravani.in/mite/mite-benchmarks.html">
+  <meta property="og:image" content="https://www.virajravani.in/mite/mite-assets/images/benchmark_results.png">
+  <meta property="og:image:alt" content="Mite Chess Engine Tournament Benchmark Results and Visualizations">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mite Chess Engine Benchmarks — 2,600 Verified Tournament Games">
+  <meta name="twitter:description" content="Engineering benchmark report for Mite chess engine: 2,600 verified games against Stockfish 2000, TSCP, and Fairy-Max.">
+  <meta name="twitter:image" content="https://www.virajravani.in/mite/mite-assets/images/benchmark_results.png">
+  <meta name="twitter:image:alt" content="Mite Chess Engine Benchmark Report Visualizations">
+  <meta name="twitter:creator" content="@v3ravani">
+
+  <!-- JSON-LD Structured Data: TechArticle, BreadcrumbList, and Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://www.virajravani.in/mite/mite-benchmarks.html#article",
+        "headline": "Verified Tournament Benchmarks — Mite Chess Engine (v2.0)",
+        "description": "Comprehensive engineering benchmark report for Mite chess engine: 2,600 verified tournament games across 13 match series against Stockfish (2000 Elo), TSCP, and Fairy-Max.",
+        "url": "https://www.virajravani.in/mite/mite-benchmarks.html",
+        "inLanguage": "en-US",
+        "datePublished": "2026-10-13",
+        "dateModified": "2026-10-13",
+        "author": {
+          "@type": "Person",
+          "@id": "https://www.virajravani.in/mite/#author",
+          "name": "Viraj Ravani",
+          "url": "https://virajravani.in/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://www.virajravani.in/mite/#author",
+          "name": "Viraj Ravani"
+        },
+        "about": {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.virajravani.in/mite/#software",
+          "name": "Mite Chess Engine",
+          "operatingSystem": "Windows, Linux, macOS (Cross-platform)",
+          "applicationCategory": "GameApplication",
+          "softwareVersion": "2.0"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.virajravani.in/mite/mite-benchmarks.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Mite Chess Engine",
+            "item": "https://www.virajravani.in/mite/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Verified Tournament Benchmarks",
+            "item": "https://www.virajravani.in/mite/mite-benchmarks.html"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.virajravani.in/mite/#author",
+        "name": "Viraj Ravani",
+        "jobTitle": "Creator and Developer",
+        "url": "https://virajravani.in/",
+        "sameAs": [
+          "https://github.com/v3ravani",
+          "https://www.linkedin.com/in/virajravani/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Typography: Inter & JetBrains Mono with system fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="mite-styles.css">
+  <!-- Early session check to prevent announcement banner flash when previously dismissed -->
+  <script>
+    (function() {
+      try {
+        if (sessionStorage.getItem('mite_cci_announcement_dismissed') === 'true') {
+          document.documentElement.classList.add('announcement-dismissed-session');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Slim Announcement Bar: Computer Chess Index (CCI) Listing -->
+  <aside class="announcement-bar" id="announcementBar" role="region" aria-label="Announcement" style="background-color: #205036 !important; background: #205036 !important; color: #ffffff !important;">
+    <div class="container-wide announcement-container" style="background: transparent !important;">
+      <div class="announcement-content" style="color: #ffffff !important;">
+        <span class="announcement-emoji" aria-hidden="true">🎉</span>
+        <span class="announcement-text" style="color: #ffffff !important;">Mite has been listed in the <a href="https://computer-chess-index.github.io/cci/" target="_blank" rel="noopener noreferrer" class="announcement-link" style="color: #ffffff !important;">Computer Chess Index (CCI)</a> on 13-10-26!</span>
+      </div>
+      <button type="button" class="announcement-close" id="announcementClose" aria-label="Dismiss announcement" style="color: #ffffff !important;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide header-container">
+      <a href="mite.html#hero" class="brand-link" aria-label="Mite Chess Engine Home">
+        <img src="mite-assets/images/mite_logo.png" alt="Mite Chess Engine Logo" class="brand-logo-img" width="16" height="32">
+        <span class="brand-name">Mite</span>
+        <span class="brand-version">v2.0</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" id="mainNavigation" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="mite.html#overview" class="nav-link">Overview</a></li>
+          <li><a href="mite.html#features" class="nav-link">Features</a></li>
+          <li><a href="mite-benchmarks.html" class="nav-link active" aria-current="page">Benchmarks</a></li>
+          <li><a href="mite.html#get-mite" class="nav-link">Get Mite</a></li>
+          <li><a href="mite.html#how-to-play" class="nav-link">How to Play</a></li>
+          <li><a href="mite.html#about" class="nav-link">About</a></li>
+        </ul>
+        <div class="header-actions">
+          <a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm link-github-repo" title="View Source on GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm link-huggingface-demo" title="Play Mite Live on Hugging Face">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Play Live</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mainNavigation">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- Benchmark Report Hero -->
+    <header class="report-hero">
+      <div class="container-wide">
+        <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+          <a href="mite.html">Mite Chess Engine</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Verified Benchmarks Report</span>
+        </nav>
+
+        <span class="section-eyebrow">ENGINEERING BENCHMARK REPORT · 2,600 VERIFIED GAMES</span>
+        <h1 class="report-hero-headline">Performance, measured carefully.</h1>
+        <p class="report-hero-desc">
+          An empirical evaluation of Mite v2.0 across 13 automated tournament series against reference engines under standardized time controls. Every game outcome, color split, and termination is documented and archived.
+        </p>
+
+        <div class="report-meta-strip">
+          <span class="report-badge report-badge-accent">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            2,600 Verified Games
+          </span>
+          <span class="report-badge">13 Match Series</span>
+          <span class="report-badge">78.5% Total Score</span>
+          <span class="report-badge">0 Crashes · 100% Stability</span>
+          <span class="report-badge">Cutechess Automated Harness</span>
+          <span class="report-badge">Alternate-Color Pairings</span>
+        </div>
+
+        <!-- Quick Section Anchor Jump Bar -->
+        <nav class="section-anchor-nav" aria-label="Report section shortcuts">
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); align-self: center; margin-right: var(--space-2);">JUMP TO:</span>
+          <a href="#introduction" class="section-anchor-btn">1. Introduction</a>
+          <a href="#overall-results" class="section-anchor-btn">2. Overall Results</a>
+          <a href="#opponent-tables" class="section-anchor-btn">3. Opponent Tables</a>
+          <a href="#interactive-charts" class="section-anchor-btn">4. Interactive Graphs</a>
+          <a href="#detailed-results" class="section-anchor-btn">5. Detailed Records</a>
+          <a href="#methodology" class="section-anchor-btn">6. Methodology & Limitations</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 1. Introduction & Rating Clarification -->
+    <section class="section" id="introduction">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">1. INTRODUCTION & SCOPE</span>
+          <h2 class="section-title">Testing methodology & benchmark purpose.</h2>
+          <p class="section-desc">
+            Engine playing strength depends on opponents, deliberation time controls, transposition table sizing, and match conditions. This report provides full transparency into Mite’s internal test tournament framework.
+          </p>
+        </div>
+
+        <!-- Rating & Methodology Clarification Banner / Notice -->
+        <div class="benchmark-disclaimer-banner reveal-fade" style="background-color: #205036 !important; background: linear-gradient(135deg, #1b432e 0%, #22563a 100%) !important; color: #ffffff !important; border-left: 5px solid #4ade80 !important;">
+          <div class="disclaimer-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <strong>Methodology & Rating Clarification:</strong> All benchmark data documented on this page is derived from 13 automated match series (2,600 games) using alternate-color pairings (100 games as White, 100 as Black per 200-game match series). <strong>The approximately 2000 Elo figure is an unofficial internal experimental estimate</strong> based on controlled testing against reference opponents (Stockfish calibrated to 2000 UCI limit, TSCP, and Fairy-Max). It does not constitute a certified CCRL, CEGT, IPON, or FIDE rating list. Independent community verification and rating submissions are welcomed.
+          </div>
+        </div>
+
+        <div class="methodology-grid reveal-fade">
+          <div class="methodology-card">
+            <h3 class="methodology-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              Standardized Opponents
+            </h3>
+            <p class="methodology-card-desc">
+              Opponents were chosen to span canonical historical reference engines to modern calibrated grandmaster-level engines:
+            </p>
+            <ul class="methodology-card-list">
+              <li><strong>Stockfish (UCI_Elo = 2000)</strong>: Calibrated handicap limit representing club/expert play.</li>
+              <li><strong>TSCP v1.81</strong>: Historic C benchmark (~1700-1800 Elo) testing tactical baseline execution.</li>
+              <li><strong>Fairy-Max 5.0b</strong>: Compact micro-engine (~1850-1900 Elo) testing move ordering against a similar footprint.</li>
+            </ul>
+          </div>
+
+          <div class="methodology-card">
+            <h3 class="methodology-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Deliberation Time Controls
+            </h3>
+            <p class="methodology-card-desc">
+              Tests cover both conventional per-move time limits and fixed search limits to observe search scaling:
+            </p>
+            <ul class="methodology-card-list">
+              <li><strong>Conventional (Per-Move)</strong>: 1s, 3s, 5s, 7s, 10s, and 60s deliberation limits.</li>
+              <li><strong>Fixed Search Time (ST)</strong>: Exact 0.5s and 2.0s search quotas without dynamic time management.</li>
+              <li><strong>Search Verification</strong>: Testing search depth growth from ~8-10 plies (1s) to ~14-16 plies (60s).</li>
+            </ul>
+          </div>
+
+          <div class="methodology-card">
+            <h3 class="methodology-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              Report Purpose
+            </h3>
+            <p class="methodology-card-desc">
+              Systematic quantitative validation of Mite's compact C codebase:
+            </p>
+            <ul class="methodology-card-list">
+              <li><strong>Search Pipeline Safety</strong>: Verifying Null-Move Pruning (NMP) and Late Move Reductions (LMR) without tactical horizon collapses.</li>
+              <li><strong>Evaluation Tuning</strong>: Material balance, pawn structures, and piece-square table weights.</li>
+              <li><strong>Stability Audit</strong>: Proving zero illegal moves, memory leaks, or crashes over thousands of games.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Overall Results (Executive Summary) -->
+    <section class="section" id="overall-results">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">2. OVERALL AGGREGATE RESULTS</span>
+          <h2 class="section-title">2,600 games across 13 match series.</h2>
+          <p class="section-desc">
+            Summary metrics compiled directly from 13 completed 200-game match series. Standard chess scoring: 1.0 point per win, 0.5 points per draw, 0.0 per loss.
+          </p>
+        </div>
+
+        <!-- 8 Key Highlights KPI Cards -->
+        <div class="benchmark-kpi-grid">
+          <div class="kpi-card reveal-fade">
+            <span class="kpi-label">Total Match Games</span>
+            <span class="kpi-value font-mono">2,600</span>
+            <span class="kpi-subtext">13 series · 200 games each</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-1">
+            <span class="kpi-label">Overall Match Score</span>
+            <span class="kpi-value kpi-accent font-mono">78.5%</span>
+            <span class="kpi-subtext">2,040.5 / 2,600 total points</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-2">
+            <span class="kpi-label">Total Wins (+)</span>
+            <span class="kpi-value font-mono" style="color: var(--tone-win);">+1,947</span>
+            <span class="kpi-subtext">74.9% overall win frequency</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-3">
+            <span class="kpi-label">Total Losses (−)</span>
+            <span class="kpi-value font-mono" style="color: var(--tone-loss);">466</span>
+            <span class="kpi-subtext">17.9% overall loss frequency</span>
+          </div>
+          <div class="kpi-card reveal-fade">
+            <span class="kpi-label">Total Draws (=)</span>
+            <span class="kpi-value font-mono" style="color: var(--tone-draw);">187</span>
+            <span class="kpi-subtext">7.2% overall draw frequency</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-1">
+            <span class="kpi-label">Technical Stability</span>
+            <span class="kpi-value font-mono">100%</span>
+            <span class="kpi-subtext">0 crashes · 0 forfeits · 0 illegal</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-2">
+            <span class="kpi-label">White Performance</span>
+            <span class="kpi-value font-mono">80.3%</span>
+            <span class="kpi-subtext">+1,001 −213 =86 (1,300 g)</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-3">
+            <span class="kpi-label">Black Performance</span>
+            <span class="kpi-value font-mono">76.7%</span>
+            <span class="kpi-subtext">+946 −253 =101 (1,300 g)</span>
+          </div>
+        </div>
+
+        <!-- Aggregate Summary Table by Opponent -->
+        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-3); color: var(--text-primary);">
+          Aggregate Performance Breakdown by Opponent
+        </h3>
+        <div class="table-responsive-wrapper reveal-fade" style="margin-bottom: var(--space-8);">
+          <table class="benchmark-table" aria-label="Aggregate benchmark results by opponent">
+            <thead>
+              <tr>
+                <th scope="col">Opponent Engine</th>
+                <th scope="col" class="cell-numeric">Match Series</th>
+                <th scope="col" class="cell-numeric">Games</th>
+                <th scope="col" class="cell-numeric">Wins (+)</th>
+                <th scope="col" class="cell-numeric">Draws (=)</th>
+                <th scope="col" class="cell-numeric">Losses (−)</th>
+                <th scope="col" class="cell-numeric">Score %</th>
+                <th scope="col">White Record (% W)</th>
+                <th scope="col">Black Record (% B)</th>
+                <th scope="col">Color Bias</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cell-opponent">
+                  <div class="opponent-name">TSCP</div>
+                  <div class="opponent-spec">Tom's Simple Chess Program v1.81</div>
+                </td>
+                <td class="cell-numeric font-mono">8</td>
+                <td class="cell-numeric font-mono">1,600</td>
+                <td class="cell-numeric font-mono cell-win">+1,356</td>
+                <td class="cell-numeric font-mono cell-draw">=105</td>
+                <td class="cell-numeric font-mono cell-loss">−139</td>
+                <td class="cell-score">
+                  <div class="score-display">
+                    <span class="score-pct font-mono">88.0%</span>
+                    <div class="score-bar-track"><div class="score-bar-fill" style="width: 88.0%;"></div></div>
+                  </div>
+                </td>
+                <td class="font-mono" style="font-size: 0.8125rem;">+684 −68 =48 (88.5%)</td>
+                <td class="font-mono" style="font-size: 0.8125rem;">+672 −71 =57 (87.6%)</td>
+                <td class="font-mono" style="font-size: 0.8125rem; color: var(--accent-forest);">+0.9% White</td>
+              </tr>
+              <tr>
+                <td class="cell-opponent">
+                  <div class="opponent-name">Stockfish (2000 Elo)</div>
+                  <div class="opponent-spec">Stockfish with UCI_Elo limit = 2000</div>
+                </td>
+                <td class="cell-numeric font-mono">3</td>
+                <td class="cell-numeric font-mono">600</td>
+                <td class="cell-numeric font-mono cell-win">+345</td>
+                <td class="cell-numeric font-mono cell-draw">=34</td>
+                <td class="cell-numeric font-mono cell-loss">−221</td>
+                <td class="cell-score">
+                  <div class="score-display">
+                    <span class="score-pct font-mono">60.3%</span>
+                    <div class="score-bar-track"><div class="score-bar-fill" style="width: 60.3%;"></div></div>
+                  </div>
+                </td>
+                <td class="font-mono" style="font-size: 0.8125rem;">+181 −99 =20 (63.7%)</td>
+                <td class="font-mono" style="font-size: 0.8125rem;">+164 −122 =14 (57.0%)</td>
+                <td class="font-mono" style="font-size: 0.8125rem; color: var(--accent-forest);">+6.7% White</td>
+              </tr>
+              <tr>
+                <td class="cell-opponent">
+                  <div class="opponent-name">Fairy-Max</div>
+                  <div class="opponent-spec">Fairy-Max 5.0b micro-engine</div>
+                </td>
+                <td class="cell-numeric font-mono">2</td>
+                <td class="cell-numeric font-mono">400</td>
+                <td class="cell-numeric font-mono cell-win">+246</td>
+                <td class="cell-numeric font-mono cell-draw">=48</td>
+                <td class="cell-numeric font-mono cell-loss">−106</td>
+                <td class="cell-score">
+                  <div class="score-display">
+                    <span class="score-pct font-mono">67.5%</span>
+                    <div class="score-bar-track"><div class="score-bar-fill" style="width: 67.5%;"></div></div>
+                  </div>
+                </td>
+                <td class="font-mono" style="font-size: 0.8125rem;">+136 −46 =18 (72.5%)</td>
+                <td class="font-mono" style="font-size: 0.8125rem;">+110 −60 =30 (62.5%)</td>
+                <td class="font-mono" style="font-size: 0.8125rem; color: var(--accent-forest);">+10.0% White</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total / Overall Benchmark</strong></td>
+                <td class="cell-numeric font-mono"><strong>13</strong></td>
+                <td class="cell-numeric font-mono"><strong>2,600</strong></td>
+                <td class="cell-numeric font-mono cell-win"><strong>+1,947</strong></td>
+                <td class="cell-numeric font-mono cell-draw"><strong>=187</strong></td>
+                <td class="cell-numeric font-mono cell-loss"><strong>−466</strong></td>
+                <td class="cell-score">
+                  <div class="score-display">
+                    <span class="score-pct font-mono" style="font-size: 1rem;">78.5%</span>
+                    <div class="score-bar-track"><div class="score-bar-fill" style="width: 78.5%;"></div></div>
+                  </div>
+                </td>
+                <td class="font-mono" style="font-size: 0.8125rem;"><strong>+1,001 −213 =86 (80.3%)</strong></td>
+                <td class="font-mono" style="font-size: 0.8125rem;"><strong>+946 −253 =101 (76.7%)</strong></td>
+                <td class="font-mono" style="font-size: 0.8125rem; color: var(--accent-forest);"><strong>+3.6% White</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Opponent Benchmark Tables -->
+    <section class="section" id="opponent-tables">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">3. OPPONENT BENCHMARK TABLES</span>
+          <h2 class="section-title">Verified match series by opponent.</h2>
+          <p class="section-desc">
+            Separate, detailed match tables for Stockfish (2000 Elo), TSCP, and Fairy-Max. Each row documents exact game counts, win/loss/draw records, color splits, estimated rating differential with 95% confidence intervals, and PGN logs.
+          </p>
+        </div>
+
+        <!-- 3.1 vs Stockfish (2000 Elo) -->
+        <article class="opponent-section" id="table-stockfish">
+          <div class="opponent-header">
+            <div class="opponent-title-group">
+              <h3 class="opponent-title">
+                Stockfish (2000 Elo)
+                <span class="report-badge report-badge-accent">3 Match Series · 600 Games</span>
+              </h3>
+              <div class="opponent-meta">
+                Engine: Stockfish · Configuration: UCI_LimitStrength=true, UCI_Elo=2000 · Platform: x64 Standalone
+              </div>
+            </div>
+            <div class="opponent-quick-stats">
+              <div class="quick-stat-item">
+                <span>Aggregate:</span>
+                <span class="quick-stat-val val-win">60.3% Score</span>
+              </div>
+              <div class="quick-stat-item">
+                <span>Record:</span>
+                <span class="quick-stat-val font-mono">+345 −221 =34</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive-wrapper reveal-fade">
+            <table class="benchmark-table" aria-label="Mite vs Stockfish 2000 Elo benchmark matches">
+              <thead>
+                <tr>
+                  <th scope="col">Time Control</th>
+                  <th scope="col" class="cell-numeric">Games</th>
+                  <th scope="col" class="cell-numeric">Wins (+)</th>
+                  <th scope="col" class="cell-numeric">Draws (=)</th>
+                  <th scope="col" class="cell-numeric">Losses (−)</th>
+                  <th scope="col" class="cell-numeric">Score %</th>
+                  <th scope="col">White / Black Score</th>
+                  <th scope="col" class="cell-numeric">Elo Diff (±95% CI)</th>
+                  <th scope="col" class="cell-numeric">LOS %</th>
+                  <th scope="col">PGN Archive</th>
+                </tr>
+              </thead>
+              <tbody id="tableBodyStockfish">
+                <!-- Dynamically populated from BENCHMARK_MATCHES -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><strong>Aggregate (3 Matches)</strong></td>
+                  <td class="cell-numeric font-mono"><strong>600</strong></td>
+                  <td class="cell-numeric font-mono cell-win"><strong>+345</strong></td>
+                  <td class="cell-numeric font-mono cell-draw"><strong>=34</strong></td>
+                  <td class="cell-numeric font-mono cell-loss"><strong>−221</strong></td>
+                  <td class="cell-score">
+                    <div class="score-display">
+                      <span class="score-pct font-mono">60.3%</span>
+                      <div class="score-bar-track"><div class="score-bar-fill" style="width: 60.3%;"></div></div>
+                    </div>
+                  </td>
+                  <td class="cell-color-splits">
+                    <div class="color-split-row font-mono"><span class="color-dot white-dot"></span> 63.7% White (+181 −99 =20)</div>
+                    <div class="color-split-row font-mono"><span class="color-dot black-dot"></span> 57.0% Black (+164 −122 =14)</div>
+                  </td>
+                  <td class="cell-numeric font-mono">+73.6 Elo</td>
+                  <td class="cell-numeric font-mono cell-win">99.9%</td>
+                  <td><a href="https://github.com/v3ravani/mite-chess-engine/tree/main/benchmarks/vs_Stockfish(2000%20elo)" target="_blank" rel="noopener noreferrer" class="pgn-link">Directory</a></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="opponent-analysis-callout">
+            <strong>Engineering Analysis vs Stockfish (2000 Elo):</strong>
+            Across 600 games, Mite achieved a decisive positive record (+345 −221 =34, 60.3%). Most notably, Mite’s score <strong>scales upward with deliberation time</strong>: advancing from <strong>56.3%</strong> at 1s/move (+43.7 Elo) to <strong>58.3%</strong> at 5s/move (+57.9 Elo) and reaching <strong>66.5%</strong> at 10s/move (+119.1 Elo, 100.0% LOS). This confirms that Mite’s search tree pruning heuristics (Null-Move Pruning, Late Move Reductions, and Quiescence search with SEE) scale soundly with additional plies of search depth without succumbing to tactical horizon blindspots.
+          </div>
+        </article>
+
+        <!-- 3.2 vs TSCP -->
+        <article class="opponent-section" id="table-tscp">
+          <div class="opponent-header">
+            <div class="opponent-title-group">
+              <h3 class="opponent-title">
+                TSCP (Tom's Simple Chess Program)
+                <span class="report-badge report-badge-accent">8 Match Series · 1,600 Games</span>
+              </h3>
+              <div class="opponent-meta">
+                Author: Tom Kerrigan · Version: v1.81 · Protocol: Text / UCI Wrapper · Historic Benchmark: ~1700–1800 Elo
+              </div>
+            </div>
+            <div class="opponent-quick-stats">
+              <div class="quick-stat-item">
+                <span>Aggregate:</span>
+                <span class="quick-stat-val val-win">88.0% Score</span>
+              </div>
+              <div class="quick-stat-item">
+                <span>Record:</span>
+                <span class="quick-stat-val font-mono">+1,356 −139 =105</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive-wrapper reveal-fade">
+            <table class="benchmark-table" aria-label="Mite vs TSCP benchmark matches">
+              <thead>
+                <tr>
+                  <th scope="col">Time Control</th>
+                  <th scope="col" class="cell-numeric">Games</th>
+                  <th scope="col" class="cell-numeric">Wins (+)</th>
+                  <th scope="col" class="cell-numeric">Draws (=)</th>
+                  <th scope="col" class="cell-numeric">Losses (−)</th>
+                  <th scope="col" class="cell-numeric">Score %</th>
+                  <th scope="col">White / Black Score</th>
+                  <th scope="col" class="cell-numeric">Elo Diff (±95% CI)</th>
+                  <th scope="col" class="cell-numeric">LOS %</th>
+                  <th scope="col">PGN Archive</th>
+                </tr>
+              </thead>
+              <tbody id="tableBodyTscp">
+                <!-- Dynamically populated from BENCHMARK_MATCHES -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><strong>Aggregate (8 Matches)</strong></td>
+                  <td class="cell-numeric font-mono"><strong>1,600</strong></td>
+                  <td class="cell-numeric font-mono cell-win"><strong>+1,356</strong></td>
+                  <td class="cell-numeric font-mono cell-draw"><strong>=105</strong></td>
+                  <td class="cell-numeric font-mono cell-loss"><strong>−139</strong></td>
+                  <td class="cell-score">
+                    <div class="score-display">
+                      <span class="score-pct font-mono">88.0%</span>
+                      <div class="score-bar-track"><div class="score-bar-fill" style="width: 88.0%;"></div></div>
+                    </div>
+                  </td>
+                  <td class="cell-color-splits">
+                    <div class="color-split-row font-mono"><span class="color-dot white-dot"></span> 88.5% White (+684 −68 =48)</div>
+                    <div class="color-split-row font-mono"><span class="color-dot black-dot"></span> 87.6% Black (+672 −71 =57)</div>
+                  </td>
+                  <td class="cell-numeric font-mono">+315.4 Elo</td>
+                  <td class="cell-numeric font-mono cell-win">100.0%</td>
+                  <td><a href="https://github.com/v3ravani/mite-chess-engine/tree/main/benchmarks/vs_TSCP" target="_blank" rel="noopener noreferrer" class="pgn-link">Directory</a></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="opponent-analysis-callout">
+            <strong>Engineering Analysis vs TSCP:</strong>
+            TSCP represents the classic pedagogical baseline chess engine in computer chess literature. Across 1,600 games, Mite achieved an overwhelming <strong>88.0% aggregate score</strong> (+1,356 −139 =105). In conventional time controls, Mite scored between 79.8% (at 5s) and 91.0% (at 60s), with an Elo differential exceeding +240 to +400 Elo. In fixed-time (st) tests, Mite scored <strong>99.3%</strong> (st 0.5s) and <strong>99.0%</strong> (st 2s), demonstrating Mite’s massive speed and move-ordering advantage (MVV-LVA, two-tier killer moves, history heuristic) over older alpha-beta engines.
+          </div>
+        </article>
+
+        <!-- 3.3 vs Fairy-Max -->
+        <article class="opponent-section" id="table-fairymax">
+          <div class="opponent-header">
+            <div class="opponent-title-group">
+              <h3 class="opponent-title">
+                Fairy-Max (v5.0b)
+                <span class="report-badge report-badge-accent">2 Match Series · 400 Games</span>
+              </h3>
+              <div class="opponent-meta">
+                Author: H.G. Muller · Version: 5.0b · Architecture: Compact Micro-Max Variant · Benchmark: ~1850–1900 Elo
+              </div>
+            </div>
+            <div class="opponent-quick-stats">
+              <div class="quick-stat-item">
+                <span>Aggregate:</span>
+                <span class="quick-stat-val val-win">67.5% Score</span>
+              </div>
+              <div class="quick-stat-item">
+                <span>Record:</span>
+                <span class="quick-stat-val font-mono">+246 −106 =48</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive-wrapper reveal-fade">
+            <table class="benchmark-table" aria-label="Mite vs Fairy-Max benchmark matches">
+              <thead>
+                <tr>
+                  <th scope="col">Time Control</th>
+                  <th scope="col" class="cell-numeric">Games</th>
+                  <th scope="col" class="cell-numeric">Wins (+)</th>
+                  <th scope="col" class="cell-numeric">Draws (=)</th>
+                  <th scope="col" class="cell-numeric">Losses (−)</th>
+                  <th scope="col" class="cell-numeric">Score %</th>
+                  <th scope="col">White / Black Score</th>
+                  <th scope="col" class="cell-numeric">Elo Diff (±95% CI)</th>
+                  <th scope="col" class="cell-numeric">LOS %</th>
+                  <th scope="col">PGN Archive</th>
+                </tr>
+              </thead>
+              <tbody id="tableBodyFairymax">
+                <!-- Dynamically populated from BENCHMARK_MATCHES -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><strong>Aggregate (2 Matches)</strong></td>
+                  <td class="cell-numeric font-mono"><strong>400</strong></td>
+                  <td class="cell-numeric font-mono cell-win"><strong>+246</strong></td>
+                  <td class="cell-numeric font-mono cell-draw"><strong>=48</strong></td>
+                  <td class="cell-numeric font-mono cell-loss"><strong>−106</strong></td>
+                  <td class="cell-score">
+                    <div class="score-display">
+                      <span class="score-pct font-mono">67.5%</span>
+                      <div class="score-bar-track"><div class="score-bar-fill" style="width: 67.5%;"></div></div>
+                    </div>
+                  </td>
+                  <td class="cell-color-splits">
+                    <div class="color-split-row font-mono"><span class="color-dot white-dot"></span> 72.5% White (+136 −46 =18)</div>
+                    <div class="color-split-row font-mono"><span class="color-dot black-dot"></span> 62.5% Black (+110 −60 =30)</div>
+                  </td>
+                  <td class="cell-numeric font-mono">+127.0 Elo</td>
+                  <td class="cell-numeric font-mono cell-win">100.0%</td>
+                  <td><a href="https://github.com/v3ravani/mite-chess-engine/tree/main/benchmarks/vs_Fairy-Max" target="_blank" rel="noopener noreferrer" class="pgn-link">Directory</a></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="opponent-analysis-callout">
+            <strong>Engineering Analysis vs Fairy-Max:</strong>
+            Fairy-Max is famous for achieving surprisingly high chess playing strength with an extremely tiny C footprint. Testing against Fairy-Max was specifically designed to evaluate whether Mite’s under-20 KB codebase maintains positional superiority against other micro-engines. Mite recorded <strong>67.0% at 1s/move</strong> and <strong>68.0% at 5s/move</strong> (+123 to +131 Elo differential), establishing a consistent, reproducible performance advantage.
+          </div>
+        </article>
+
+        <!-- 3.4 Master Filterable & Sortable Table -->
+        <article class="opponent-section" style="margin-top: var(--space-16);">
+          <div class="section-header" style="margin-bottom: var(--space-6);">
+            <span class="section-eyebrow">MASTER DATASET (ALL 13 MATCHES)</span>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em;">
+              Filterable & Sortable Master Benchmark Table
+            </h3>
+            <p style="font-size: 0.9375rem; color: var(--text-secondary);">
+              Sort by column headers (click on header to toggle ascending/descending) or filter matches by opponent using the pill selectors below.
+            </p>
+          </div>
+
+          <!-- Filterable, Sortable Table Controls -->
+          <div class="benchmark-table-controls">
+            <div class="filter-pills" role="tablist" aria-label="Filter benchmark matches by opponent">
+              <button class="benchmark-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Opponents (13)</button>
+              <button class="benchmark-filter-btn" data-filter="stockfish" role="tab" aria-selected="false">Stockfish (2000 Elo)</button>
+              <button class="benchmark-filter-btn" data-filter="tscp" role="tab" aria-selected="false">TSCP</button>
+              <button class="benchmark-filter-btn" data-filter="fairymax" role="tab" aria-selected="false">Fairy-Max</button>
+            </div>
+            <div class="table-results-counter font-mono" id="benchmarkResultsCount">
+              Showing 13 of 13 verified match series (2,600 games)
+            </div>
+          </div>
+
+          <div class="table-responsive-wrapper reveal-fade">
+            <table class="benchmark-table" id="benchmarkTable" aria-label="Complete Mite Chess Engine Benchmark Dataset">
+              <thead>
+                <tr>
+                  <th data-sort="opponent" scope="col">Opponent & Version</th>
+                  <th data-sort="timeControl" scope="col">Time Control</th>
+                  <th data-sort="games" class="cell-numeric" scope="col">Games</th>
+                  <th data-sort="wins" class="cell-numeric" scope="col">Wins (+)</th>
+                  <th data-sort="draws" class="cell-numeric" scope="col">Draws (=)</th>
+                  <th data-sort="losses" class="cell-numeric" scope="col">Losses (−)</th>
+                  <th data-sort="scorePct" class="cell-numeric" scope="col">Score %</th>
+                  <th scope="col">White / Black Score</th>
+                  <th scope="col">Archive</th>
+                </tr>
+              </thead>
+              <tbody id="benchmarkTableBody">
+                <!-- Dynamically populated via BenchmarksTable.render() -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-footnote">
+            <span>Standard chess score formula: <code>Score % = (Wins + 0.5 × Draws) / Games × 100</code></span>
+            <a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/overview.md" target="_blank" rel="noopener noreferrer" class="link-benchmarks-report" style="color: var(--accent-forest); text-decoration: underline;">
+              Read raw Markdown benchmark report on GitHub &rarr;
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Interactive Graphs & Visualizations -->
+    <section class="section" id="interactive-charts">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">4. INTERACTIVE VISUALIZATIONS</span>
+          <h2 class="section-title">Comparative charts & scaling curves.</h2>
+          <p class="section-desc">
+            Clean, accessible vector charts rendering verified outcomes, deliberation scaling, color splits, and decisiveness breakdowns. Hover over data points and bars for precise counts.
+          </p>
+        </div>
+
+        <!-- 4 Native SVG Charts Grid (2x2) -->
+        <div class="charts-grid">
+          <!-- Chart 1: Match Score Distribution -->
+          <div class="chart-panel reveal-fade">
+            <div class="chart-header">
+              <h3 class="chart-title">Match Score Distribution</h3>
+              <p class="chart-subtitle">Wins, Draws, and Losses breakdown across opponents</p>
+            </div>
+            <div class="chart-canvas-wrapper" id="chartScoreDistContainer">
+              <!-- Rendered via ScoreDistributionChart.render() -->
+            </div>
+          </div>
+
+          <!-- Chart 2: Performance Across Time Controls -->
+          <div class="chart-panel reveal-fade reveal-delay-1">
+            <div class="chart-header">
+              <h3 class="chart-title">Deliberation Time Scaling</h3>
+              <p class="chart-subtitle">Score percentage scaling as deliberation time increases (1s to 60s)</p>
+            </div>
+            <div class="chart-canvas-wrapper" id="chartTimeControlContainer">
+              <!-- Rendered via TimeControlChart.render() -->
+            </div>
+          </div>
+
+          <!-- Chart 3: White vs Black Color Performance -->
+          <div class="chart-panel reveal-fade">
+            <div class="chart-header">
+              <h3 class="chart-title">White vs. Black Color Performance</h3>
+              <p class="chart-subtitle">Scoring percentage when playing White versus Black across opponents</p>
+            </div>
+            <div class="chart-canvas-wrapper" id="chartColorPerformanceContainer">
+              <!-- Rendered via ColorPerformanceChart.render() -->
+            </div>
+          </div>
+
+          <!-- Chart 4: Game Termination & Decisiveness Breakdown -->
+          <div class="chart-panel reveal-fade reveal-delay-1">
+            <div class="chart-header">
+              <h3 class="chart-title">Decisiveness & Game Termination Types</h3>
+              <p class="chart-subtitle">Distribution of checkmates, repetitions, 50-move draws, and forfeits (2,600 games)</p>
+            </div>
+            <div class="chart-canvas-wrapper" id="chartTerminationsContainer">
+              <!-- Rendered via TerminationChart.render() -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Detailed Results, Stability & Game Terminations -->
+    <section class="section" id="detailed-results">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">5. DETAILED RESULTS & STABILITY</span>
+          <h2 class="section-title">Reliability audit & terminations.</h2>
+          <p class="section-desc">
+            In competitive computer chess, engine reliability is as vital as evaluation strength. An engine that crashes or plays an illegal move forfeits instantly.
+          </p>
+        </div>
+
+        <!-- Stability Audit Cards -->
+        <div class="benchmark-kpi-grid">
+          <div class="kpi-card reveal-fade">
+            <span class="kpi-label">Engine Crashes</span>
+            <span class="kpi-value font-mono" style="color: var(--tone-win);">0</span>
+            <span class="kpi-subtext">Across 2,600 tournament games</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-1">
+            <span class="kpi-label">Illegal Move Forfeits</span>
+            <span class="kpi-value font-mono" style="color: var(--tone-win);">0</span>
+            <span class="kpi-subtext">100% UCI move generation accuracy</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-2">
+            <span class="kpi-label">Time Forfeit Losses</span>
+            <span class="kpi-value font-mono" style="color: var(--tone-win);">0</span>
+            <span class="kpi-subtext">Zero time-management overruns</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-3">
+            <span class="kpi-label">Decisive Game Ratio</span>
+            <span class="kpi-value font-mono">92.8%</span>
+            <span class="kpi-subtext">2,413 wins/losses · 187 draws</span>
+          </div>
+        </div>
+
+        <!-- Terminations Table Breakdown -->
+        <div class="table-responsive-wrapper reveal-fade" style="margin-top: var(--space-6); margin-bottom: var(--space-8);">
+          <table class="benchmark-table" aria-label="Game termination breakdown across 2,600 games">
+            <thead>
+              <tr>
+                <th scope="col">Termination Category</th>
+                <th scope="col" class="cell-numeric">Games Count</th>
+                <th scope="col" class="cell-numeric">Percentage</th>
+                <th scope="col">Technical Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Mite Checkmate Wins</strong></td>
+                <td class="cell-numeric font-mono cell-win">1,944</td>
+                <td class="cell-numeric font-mono cell-win">74.8%</td>
+                <td>Verified clean king checkmates delivered by Mite</td>
+              </tr>
+              <tr>
+                <td><strong>Checkmate Losses</strong></td>
+                <td class="cell-numeric font-mono cell-loss">466</td>
+                <td class="cell-numeric font-mono cell-loss">17.9%</td>
+                <td>Defeats delivered by opponent engines (Stockfish 221, TSCP 139, Fairy-Max 106)</td>
+              </tr>
+              <tr>
+                <td><strong>Threefold Repetition Draws</strong></td>
+                <td class="cell-numeric font-mono cell-draw">74</td>
+                <td class="cell-numeric font-mono">2.8%</td>
+                <td>Draw claimed by threefold board repetition via Zobrist key history</td>
+              </tr>
+              <tr>
+                <td><strong>Insufficient Material Draws</strong></td>
+                <td class="cell-numeric font-mono cell-draw">54</td>
+                <td class="cell-numeric font-mono">2.1%</td>
+                <td>KvK, KvK+N, KvK+B endgames resolved by referee</td>
+              </tr>
+              <tr>
+                <td><strong>Fifty-Move Rule Draws</strong></td>
+                <td class="cell-numeric font-mono cell-draw">29</td>
+                <td class="cell-numeric font-mono">1.1%</td>
+                <td>50 consecutive moves without pawn advance or piece capture</td>
+              </tr>
+              <tr>
+                <td><strong>Stalemate Draws</strong></td>
+                <td class="cell-numeric font-mono cell-draw">4</td>
+                <td class="cell-numeric font-mono">0.2%</td>
+                <td>Legal stalemate verified by referee</td>
+              </tr>
+              <tr>
+                <td><strong>Opponent Time Forfeits (Mite Wins)</strong></td>
+                <td class="cell-numeric font-mono cell-win">3</td>
+                <td class="cell-numeric font-mono">0.1%</td>
+                <td>2 by Stockfish at tc10; 1 by Fairy-Max at tc1</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total Tournament Games</strong></td>
+                <td class="cell-numeric font-mono"><strong>2,600</strong></td>
+                <td class="cell-numeric font-mono"><strong>100.0%</strong></td>
+                <td><strong>13 Completed Series · Alternate Colors</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Raw PGN Links Directory Grid -->
+        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-3); color: var(--text-primary);">
+          Raw PGN Match Records in Repository
+        </h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: var(--space-4);">
+          All 2,600 games are committed as open-source PGN files in the official GitHub repository for complete independent auditing, opening replay, and analysis:
+        </p>
+
+        <div class="raw-pgn-grid">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-xs); padding: var(--space-4);">
+            <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: var(--space-2); color: var(--text-primary);">vs Stockfish (2000 Elo)</div>
+            <ul style="list-style: none; font-size: 0.8125rem; display: flex; flex-direction: column; gap: 6px;">
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_Stockfish(2000%20elo)/mite_vs_stockfish2000_tc1.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc1 (1s/move · 200 games) &rarr;</a></li>
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_Stockfish(2000%20elo)/mite_vs_stockfish2000_tc5.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc5 (5s/move · 200 games) &rarr;</a></li>
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_Stockfish(2000%20elo)/mite_vs_stockfish2000_tc10.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc10 (10s/move · 200 games) &rarr;</a></li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-xs); padding: var(--space-4);">
+            <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: var(--space-2); color: var(--text-primary);">vs TSCP v1.81 (1,600 games)</div>
+            <ul style="list-style: none; font-size: 0.8125rem; display: flex; flex-direction: column; gap: 6px;">
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_TSCP/mite_vs_tscp_tc1.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc1, tc3, tc5 (200g each) &rarr;</a></li>
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_TSCP/mite_vs_tscp_tc7.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc7, tc10, tc60 (200g each) &rarr;</a></li>
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_TSCP/mite_vs_tscp_st0.5.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">st0.5, st2.0 (Fixed time · 200g each) &rarr;</a></li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-xs); padding: var(--space-4);">
+            <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: var(--space-2); color: var(--text-primary);">vs Fairy-Max 5.0b (400 games)</div>
+            <ul style="list-style: none; font-size: 0.8125rem; display: flex; flex-direction: column; gap: 6px;">
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_Fairy-Max/mite_vs_fairymax_tc1.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc1 (1s/move · 200 games) &rarr;</a></li>
+              <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/vs_Fairy-Max/mite_vs_fairymax_tc5.pgn" target="_blank" rel="noopener noreferrer" class="pgn-link">tc5 (5s/move · 200 games) &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Methodology & Limitations -->
+    <section class="section" id="methodology">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">6. METHODOLOGY & LIMITATIONS</span>
+          <h2 class="section-title">Testing conditions & statistical rigor.</h2>
+          <p class="section-desc">
+            Responsible benchmarking requires documenting testing hardware, tournament protocols, mathematical definitions, and technical limitations.
+          </p>
+        </div>
+
+        <div class="methodology-grid reveal-fade">
+          <div class="methodology-card">
+            <h3 class="methodology-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              Tournament Execution Protocol
+            </h3>
+            <p class="methodology-card-desc">
+              All matches were executed using Cutechess-cli with strict protocol enforcement:
+            </p>
+            <ul class="methodology-card-list">
+              <li><strong>Alternate Colors</strong>: Engines alternated White and Black every game to neutralize first-move advantage.</li>
+              <li><strong>Equal Deliberation</strong>: Opponents shared identical time allocations under single-thread CPU scheduling.</li>
+              <li><strong>Transposition Tables</strong>: 16 MB default hash table (2²⁰ entries) with 64-bit Zobrist indexing.</li>
+              <li><strong>Zero External Books</strong>: Engines calculated exclusively from the standard initial chess array.</li>
+            </ul>
+          </div>
+
+          <div class="methodology-card">
+            <h3 class="methodology-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              Standard Formulas
+            </h3>
+            <p class="methodology-card-desc">
+              Scores and rating differences are computed using standard computer chess mathematics:
+            </p>
+            <ul class="methodology-card-list">
+              <li><strong>Score %</strong>: <code>(Wins + 0.5 × Draws) / Games × 100</code></li>
+              <li><strong>Elo Difference</strong>: Calculated using the logistic Elo equation <code>ΔElo = -400 × log10(1/Score - 1)</code> with 95% confidence intervals.</li>
+              <li><strong>Likelihood of Superiority (LOS)</strong>: Probability that Mite is genuinely stronger than opponent based on game distribution.</li>
+            </ul>
+          </div>
+
+          <div class="methodology-card">
+            <h3 class="methodology-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Compilation Environment
+            </h3>
+            <p class="methodology-card-desc">
+              Standard ANSI C99 compilation pipeline:
+            </p>
+            <ul class="methodology-card-list">
+              <li><strong>Compiler</strong>: GCC / MinGW-w64 with <code>-O3 -march=native</code> optimization flags.</li>
+              <li><strong>Binary Footprint</strong>: ~115 KB static standalone Windows executable.</li>
+              <li><strong>Source Constraints</strong>: Under 20 KB source across ~409 lines in <code>src/Mite.c</code>.</li>
+              <li><strong>Dependencies</strong>: Zero third-party runtime libraries or external DLLs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Explicit Testing Limitations Box -->
+        <div class="limitations-box reveal-fade">
+          <h3 class="limitations-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-wood);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            Explicit Testing Limitations & Scientific Integrity
+          </h3>
+          <div class="limitations-content">
+            <p>
+              1. <strong>Internal Estimate, Not Certified List Rating:</strong> Mite’s estimated ~2000 Elo playing strength is an internal benchmark calibrated from controlled matches against Stockfish (UCI_Elo = 2000). It is not an official rating issued by CCRL (Computer Chess Rating Lists), CEGT (Chess Engine Games Tournament), or FIDE.
+            </p>
+            <p>
+              2. <strong>No Opening Book:</strong> Because games began without an opening book, matches began from the standard chess starting position (1.e4 or 1.d4). While this evaluates pure internal search and piece-square evaluation, engines in rating lists typically test against diverse opening books (e.g. 8-ply balanced opening books) to prevent repeated pawn transposition lines.
+            </p>
+            <p>
+              3. <strong>Artificial Handicap Opponents:</strong> Stockfish’s <code>UCI_LimitStrength</code> mechanism handicaps play by introducing controlled search limits and evaluation noise. While widely used as a reproducible rating anchor, it does not perfectly mimic human or organic rating pool engine behavior.
+            </p>
+            <p>
+              4. <strong>Independent Testing Welcome:</strong> We invite chess programmers and rating list operators to benchmark Mite in independent rating pools. Mite is UCI compliant and ready to load into Arena, Cutechess, BanksiaGUI, or automated testing rigs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Call to Action / Test Mite Yourself -->
+    <section class="section" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+      <div class="container text-center" style="max-width: 680px; margin: 0 auto; text-align: center;">
+        <span class="section-eyebrow">REPRODUCE & TEST</span>
+        <h2 class="section-title" style="margin-bottom: var(--space-4);">Test Mite in your own GUI.</h2>
+        <p class="section-desc" style="margin: 0 auto var(--space-8);">
+          Download the ~115 KB standalone binary or inspect the single-file C source code. Run your own tournament series in Arena, Cutechess, or BanksiaGUI.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="https://github.com/v3ravani/mite-chess-engine/raw/main/bin/Mite.exe" download class="btn btn-primary link-windows-binary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download Mite.exe (~115 KB)</span>
+          </a>
+          <a href="mite.html#how-to-play" class="btn btn-secondary">
+            <span>Setup & Testing Guide &rarr;</span>
+          </a>
+          <a href="mite.html" class="btn btn-outline">
+            <span>&larr; Return to Mite Home</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky Footer -->
+  <footer class="site-footer">
+    <div class="container-wide footer-grid">
+      <div class="footer-brand-col">
+        <a href="mite.html#hero" class="brand-link" aria-label="Mite Chess Engine Home">
+          <img src="mite-assets/images/mite_logo.png" alt="Mite Chess Engine Logo" class="brand-logo-img" width="16" height="32">
+          <span class="brand-name">Mite</span>
+          <span class="brand-version">v2.0</span>
+        </a>
+        <p class="footer-brand-desc">
+          A compact UCI chess engine written in C by Viraj Ravani. Plays serious ~2000-Elo-class tournament chess in under 20 KB of source code.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-link-list">
+          <li><a href="mite.html#overview" class="footer-link">Overview</a></li>
+          <li><a href="mite.html#features" class="footer-link">Features</a></li>
+          <li><a href="mite-benchmarks.html" class="footer-link" style="color: var(--accent-forest); font-weight: 600;">Benchmarks Report</a></li>
+          <li><a href="mite.html#get-mite" class="footer-link">Downloads</a></li>
+          <li><a href="mite.html#how-to-play" class="footer-link">How to Play</a></li>
+          <li><a href="mite.html#about" class="footer-link">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Benchmark Data</h4>
+        <ul class="footer-link-list">
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/overview.md" target="_blank" rel="noopener noreferrer" class="footer-link link-benchmarks-report">Benchmark Report on GitHub</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/tree/main/benchmarks/vs_Stockfish(2000%20elo)" target="_blank" rel="noopener noreferrer" class="footer-link">Stockfish PGN Records</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/tree/main/benchmarks/vs_TSCP" target="_blank" rel="noopener noreferrer" class="footer-link">TSCP PGN Records</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/tree/main/benchmarks/vs_Fairy-Max" target="_blank" rel="noopener noreferrer" class="footer-link">Fairy-Max PGN Records</a></li>
+          <li><a href="https://computer-chess-index.github.io/cci/" target="_blank" rel="noopener noreferrer" class="footer-link">Computer Chess Index (CCI)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Project & Author</h4>
+        <ul class="footer-link-list">
+          <li><a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer" class="footer-link link-github-repo">GitHub Repository</a></li>
+          <li><a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank" rel="noopener noreferrer" class="footer-link link-huggingface-demo">Hugging Face Live Demo</a></li>
+          <li><a href="https://virajravani.in/" target="_blank" rel="noopener noreferrer" class="footer-link link-author-portfolio">Viraj Ravani Portfolio</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="footer-link link-license">MIT License</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; <span id="currentYear">2026</span> Viraj Ravani. Released under the MIT License.
+      </div>
+      <div>
+        <span class="footer-tech-badge">2,600 Games Verified</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: No modules, compatible with direct file:// open -->
+  <script src="mite-config.js"></script>
+  <script src="mite-benchmarks.js"></script>
+  <script src="mite-main.js"></script>
+</body>
+</html>

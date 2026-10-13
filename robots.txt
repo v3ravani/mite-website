@@ -1,0 +1,14 @@
+# robots.txt for Mite Chess Engine
+# Official website: https://www.virajravani.in/mite/
+# Author: Viraj Ravani
+
+User-agent: *
+Allow: /
+Allow: /mite-assets/
+Allow: /mite-styles.css
+Allow: /mite-main.js
+Allow: /mite-benchmarks.js
+Allow: /mite-config.js
+
+# Sitemap location
+Sitemap: https://www.virajravani.in/mite/sitemap.xml

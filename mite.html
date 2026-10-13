@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Metadata -->
+  <title>Mite Chess Engine by Viraj Ravani — Lightweight C Chess Engine (UCI)</title>
+  <meta name="description"
+    content="Mite is an open source UCI chess engine written in C by Viraj Ravani. Delivering an estimated ~2000 Elo playing strength with under 20 KB of source code and a ~115 KB binary. Play online or download on GitHub.">
+  <meta name="keywords"
+    content="Mite Chess Engine, Mite Chess Engine by Viraj Ravani, Mite Viraj Ravani, Viraj Ravani Chess, Mite UCI Chess Engine, Lightweight Chess Engine, C Chess Engine, Open Source Chess Engine, Compact Chess Engine, 2000 Elo Chess Engine, Chess Engine Written in C, Mite Chess Engine Benchmarks, Mite Chess Engine GitHub, Play Mite Chess Online">
+  <meta name="author" content="Viraj Ravani">
+  <meta name="creator" content="Viraj Ravani">
+  <meta name="publisher" content="Viraj Ravani">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.virajravani.in/mite/">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/png" href="mite-assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="mite-assets/images/mite_logo.png">
+  <meta name="theme-color" content="#205036">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mite Chess">
+  <meta name="application-name" content="Mite Chess Engine">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="Mite Chess Engine">
+  <meta property="og:title" content="Mite Chess Engine by Viraj Ravani — Lightweight C Chess Engine (UCI)">
+  <meta property="og:description"
+    content="Mite is an open source UCI chess engine written in C by Viraj Ravani. Estimated ~2000 Elo playing strength in under 20 KB of source code and ~115 KB standalone binary.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.virajravani.in/mite/">
+  <meta property="og:image" content="https://www.virajravani.in/mite/mite-assets/images/mite_logo.png">
+  <meta property="og:image:alt" content="Mite Chess Engine Logo by Viraj Ravani">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mite Chess Engine by Viraj Ravani — Lightweight C Chess Engine (UCI)">
+  <meta name="twitter:description"
+    content="Mite is an open source UCI chess engine written in C by Viraj Ravani. Estimated ~2000 Elo playing strength in under 20 KB of source code.">
+  <meta name="twitter:image" content="https://www.virajravani.in/mite/mite-assets/images/mite_logo.png">
+  <meta name="twitter:image:alt" content="Mite Chess Engine Logo by Viraj Ravani">
+  <meta name="twitter:creator" content="@v3ravani">
+
+  <!-- JSON-LD Structured Data: WebSite, SoftwareApplication, and Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.virajravani.in/mite/#website",
+        "url": "https://www.virajravani.in/mite/",
+        "name": "Mite Chess Engine",
+        "description": "Official website for Mite, a lightweight UCI chess engine written in C by Viraj Ravani targeting ~2000 Elo playing strength.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://www.virajravani.in/mite/#author"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.virajravani.in/mite/#software",
+        "name": "Mite Chess Engine",
+        "alternateName": "Mite",
+        "operatingSystem": "Windows, Linux, macOS (Cross-platform)",
+        "applicationCategory": "GameApplication",
+        "applicationSubCategory": "Chess Engine",
+        "softwareVersion": "2.0",
+        "fileSize": "115 KB",
+        "programmingLanguage": "C",
+        "description": "Mite is a compact, open-source UCI chess engine written in C by Viraj Ravani. Engineered in under 20 KB of source code with an estimated ~2000 Elo playing strength.",
+        "url": "https://www.virajravani.in/mite/",
+        "downloadUrl": "https://github.com/v3ravani/mite-chess-engine/releases",
+        "codeRepository": "https://github.com/v3ravani/mite-chess-engine",
+        "license": "https://github.com/v3ravani/mite-chess-engine/blob/main/LICENSE",
+        "author": {
+          "@id": "https://www.virajravani.in/mite/#author"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.virajravani.in/mite/#author",
+        "name": "Viraj Ravani",
+        "jobTitle": "Creator and Developer",
+        "url": "https://virajravani.in/",
+        "sameAs": [
+          "https://github.com/v3ravani",
+          "https://www.linkedin.com/in/virajravani/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Typography: Inter & JetBrains Mono with system fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="mite-styles.css">
+  <!-- Early session check to prevent banner flash when previously dismissed -->
+  <script>
+    (function () {
+      try {
+        if (sessionStorage.getItem('mite_cci_announcement_dismissed') === 'true') {
+          document.documentElement.classList.add('announcement-dismissed-session');
+        }
+      } catch (e) { }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <!-- Slim Announcement Bar: Computer Chess Index (CCI) Listing -->
+  <aside class="announcement-bar" id="announcementBar" role="region" aria-label="Announcement"
+    style="background-color: #205036 !important; background: #205036 !important; color: #ffffff !important;">
+    <div class="container-wide announcement-container" style="background: transparent !important;">
+      <div class="announcement-content" style="color: #ffffff !important;">
+        <span class="announcement-emoji" aria-hidden="true">🎉</span>
+        <span class="announcement-text" style="color: #ffffff !important;">Mite has been listed in the <a
+            href="https://computer-chess-index.github.io/cci/" target="_blank" rel="noopener noreferrer"
+            class="announcement-link" style="color: #ffffff !important;">Computer Chess Index (CCI)</a> on
+          13-10-26!</span>
+      </div>
+      <button type="button" class="announcement-close" id="announcementClose" aria-label="Dismiss announcement"
+        style="color: #ffffff !important;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide header-container">
+      <a href="#hero" class="brand-link" aria-label="Mite Chess Engine Home">
+        <img src="mite-assets/images/mite_logo.png" alt="Mite Chess Engine Logo" class="brand-logo-img" width="16"
+          height="32">
+        <span class="brand-name">Mite</span>
+        <span class="brand-version">v2.0</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" id="mainNavigation" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="mite-benchmarks.html" class="nav-link">Benchmarks</a></li>
+          <li><a href="#get-mite" class="nav-link">Get Mite</a></li>
+          <li><a href="#how-to-play" class="nav-link">How to Play</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+        <div class="header-actions">
+          <a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline btn-sm link-github-repo" title="View Source on GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary btn-sm link-huggingface-demo" title="Play Mite Live on Hugging Face">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Play Live</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu" aria-expanded="false"
+        aria-controls="mainNavigation">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- 4. Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <!-- Hero Text & Specs -->
+        <div class="hero-content reveal-fade">
+          <span class="hero-eyebrow">COMPACT CHESS ENGINE · WRITTEN IN C</span>
+          <h1 class="hero-headline">
+            Small source.<br>
+            Serious chess.
+          </h1>
+          <p class="hero-description">
+            Mite is a lightweight chess engine written in C, built around a simple goal: deliver a playable,
+            UCI-compatible engine targeting ~2000-Elo-class strength with a remarkably compact codebase of under 20 KB
+            source code and a ~115 KB standalone binary.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary link-huggingface-demo" id="heroPrimaryCta">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Play Mite Live</span>
+            </a>
+            <a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer"
+              class="btn btn-secondary link-github-repo" id="heroSecondaryCta">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+              <span>Explore on GitHub</span>
+            </a>
+          </div>
+
+          <!-- Compact Technical Information Row -->
+          <div class="hero-tech-strip">
+            <div class="tech-strip-item">
+              <span class="tech-strip-label">Language</span>
+              <span class="tech-strip-value">Written in C</span>
+            </div>
+            <div class="tech-strip-item">
+              <span class="tech-strip-label">Protocol</span>
+              <span class="tech-strip-value">UCI compatible</span>
+            </div>
+            <div class="tech-strip-item">
+              <span class="tech-strip-label">Source Size</span>
+              <span class="tech-strip-value">&lt; 20 KB source</span>
+            </div>
+            <div class="tech-strip-item">
+              <span class="tech-strip-label">Distribution</span>
+              <span class="tech-strip-value">Windows (~115 KB)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Precision Interactive Chessboard -->
+        <div class="hero-board-wrapper reveal-fade reveal-delay-1"
+          aria-label="Illustrative Chess Position from Mite Tournament Games">
+          <div class="board-header">
+            <span class="board-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="3" y1="15" x2="21" y2="15"></line>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+                <line x1="15" y1="3" x2="15" y2="21"></line>
+              </svg>
+              <span>Position Preview</span>
+            </span>
+            <span class="board-eval-badge"><span class="eval-pulse-dot" aria-hidden="true"></span>eval +1.84 · depth
+              18/24</span>
+          </div>
+
+          <div class="chessboard-container">
+            <div class="chessboard-grid" id="heroChessboard" role="grid" aria-label="8x8 Chessboard Grid">
+              <!-- Rendered via js/main.js with SVG pieces & coordinates -->
+            </div>
+          </div>
+
+          <div class="board-footer">
+            <div class="board-inspect-status" id="boardInspectStatus">
+              <span class="badge-square font-mono">e4</span>
+              <span class="badge-piece">Hover or click any square to inspect</span>
+            </div>
+            <span class="board-caption">Mite tactical initiative</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Introduction / Overview -->
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">OVERVIEW & ARCHITECTURE</span>
+          <h2 class="section-title">An engine built with constraints in mind.</h2>
+          <p class="section-desc">
+            Mite demonstrates that high playing strength does not require hundreds of thousands of lines of code. By
+            combining efficient algorithmic density with strict memory constraints, it provides a tournament-ready
+            engine in a single C source file.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Left Column: Editorial Philosophy -->
+          <div class="editorial-body reveal-fade">
+            <p>
+              Developed by <strong>Viraj Ravani</strong>, <strong>Mite</strong> was conceived as an engineering study in
+              minimalism: how much chess intelligence can be packed into a single C file without relying on external
+              dependencies or compromising search depth?
+            </p>
+            <p>
+              The engine operates strictly through the <strong>Universal Chess Interface (UCI)</strong> standard
+              protocol. Rather than embedding a proprietary user interface, Mite connects directly over standard input
+              and output (<code>stdin</code> / <code>stdout</code>) to established chess GUIs like Arena, Cutechess, and
+              BanksiaGUI, as well as automated tournament managers.
+            </p>
+            <blockquote class="callout-quote">
+              “Every heuristic in Mite is evaluated for its algorithmic density: maximum tactical value per byte of
+              compiled code.”
+            </blockquote>
+            <p>
+              The complete engine source code is contained in <code>src/Mite.c</code>, measuring approximately
+              <strong>19.7 KB across ~409 lines</strong>. When compiled with optimization, it produces a standalone
+              Windows binary of approximately <strong>115 KB</strong> requiring zero runtime DLLs, and a <strong>~60 KB
+                WebAssembly</strong> module for instant in-browser play.
+            </p>
+          </div>
+
+          <!-- Right Column: Technical Specification Panel -->
+          <div class="spec-panel reveal-fade reveal-delay-1">
+            <div class="spec-panel-header">
+              <div class="spec-panel-header-left">
+                <img src="mite-assets/images/mite_logo.png" alt="Mite Logo" class="spec-logo-img" width="10"
+                  height="20">
+                <span class="spec-panel-title">Engine Specifications</span>
+              </div>
+              <span class="feature-tech-tag font-mono">ANSI C / C99</span>
+            </div>
+            <div class="spec-list">
+              <div class="spec-item">
+                <span class="spec-key">Project</span>
+                <span class="spec-val">Mite Chess Engine</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Author</span>
+                <span class="spec-val">Viraj Ravani</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Language</span>
+                <span class="spec-val">ANSI C (C99 standard compatible)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Protocol</span>
+                <span class="spec-val">UCI (Universal Chess Interface)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Source Size</span>
+                <span class="spec-val spec-val-mono">&lt; 20 KB (19.7 KB, ~409 lines in src/Mite.c)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Binary Size</span>
+                <span class="spec-val spec-val-mono">~115 KB static executable (bin/Mite.exe)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Board Rep.</span>
+                <span class="spec-val">0x88 coordinate system with O(1) bounds checks</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Search Depth</span>
+                <span class="spec-val">Iterative Deepening up to 24 plies with PVS</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Hash Table</span>
+                <span class="spec-val">16 MB default (2²⁰ entries, 64-bit Zobrist)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Platforms</span>
+                <span class="spec-val">Windows (x64), POSIX / Linux, WebAssembly</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">License</span>
+                <span class="spec-val">MIT License</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Features Section -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">ENGINE CAPABILITIES</span>
+          <h2 class="section-title">Engineered for density and speed.</h2>
+          <p class="section-desc">
+            Every component in Mite is verified against the actual source implementation in <code>src/Mite.c</code>. No
+            fabricated capabilities or unverified heuristics.
+          </p>
+        </div>
+
+        <div class="features-container">
+          <!-- Featured Feature: Compact C Implementation -->
+          <div class="feature-featured reveal-fade">
+            <div class="feature-featured-content">
+              <div class="feature-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="feature-title">Compact Single-File C Implementation</h3>
+              <p class="feature-desc">
+                The entire engine is implemented in a monolithic C file under 20 KB. Move generation, 0x88 board state,
+                evaluation tables, iterative deepening, and UCI communication run without external dependencies or
+                auxiliary data files.
+              </p>
+              <div class="feature-tech-tag font-mono">src/Mite.c · 19.7 KB · ~409 lines</div>
+            </div>
+            <div class="feature-code-preview" aria-label="Code snippet from Mite.c">
+              <pre><code>// 0x88 board representation & move generator
+#define IS_ON_BOARD(sq) (!((sq) & 0x88))
+
+int search(int alpha, int beta, int depth) {
+  if (depth &lt;= 0) return quiesce(alpha, beta);
+  // PVS, Transposition Table probe, NMP, LMR
+  ...
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- 3-Column Secondary Grid -->
+          <div class="features-grid">
+            <!-- Feature 1: UCI Protocol Support -->
+            <div class="feature-card reveal-fade">
+              <div class="feature-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="feature-title">Standard UCI Protocol Compliance</h3>
+              <p class="feature-desc">
+                Full compliance with the Universal Chess Interface standard enables instant integration into Arena,
+                Cutechess, BanksiaGUI, and Fritz via standard I/O streams.
+              </p>
+              <span class="feature-tech-tag font-mono">stdin / stdout communication</span>
+            </div>
+
+            <!-- Feature 2: Multi-Stage Search Pipeline -->
+            <div class="feature-card reveal-fade reveal-delay-1">
+              <div class="feature-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="feature-title">Advanced Search & Pruning</h3>
+              <p class="feature-desc">
+                Negamax search with Principal Variation Search (PVS), iterative deepening to 24 plies, aspiration
+                windows (±65), Null-Move Pruning, and SEE-guided quiescence.
+              </p>
+              <span class="feature-tech-tag font-mono">PVS · NMP · LMR · Quiescence</span>
+            </div>
+
+            <!-- Feature 3: Static Evaluation Engine -->
+            <div class="feature-card reveal-fade reveal-delay-2">
+              <div class="feature-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+              <h3 class="feature-title">Handcrafted Static Evaluation</h3>
+              <p class="feature-desc">
+                Carefully tuned evaluation combining packed piece-square tables, pawn structure, rook open files, king
+                safety penalties, knight outposts, and endgame king-opposition heuristics.
+              </p>
+              <span class="feature-tech-tag font-mono">Material + Piece-Square Tables</span>
+            </div>
+
+            <!-- Feature 4: WebAssembly Browser Build -->
+            <div class="feature-card reveal-fade">
+              <div class="feature-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Browser WebAssembly Build</h3>
+              <p class="feature-desc">
+                Compiled to a lightweight ~60 KB WASM module running in a dedicated Web Worker on Hugging Face Spaces,
+                sustaining 800,000 to 1,500,000 nodes per second.
+              </p>
+              <span class="feature-tech-tag font-mono">mite.wasm (~60 KB)</span>
+            </div>
+
+            <!-- Feature 5: Standalone Windows Binary -->
+            <div class="feature-card reveal-fade reveal-delay-1">
+              <div class="feature-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Zero-Dependency Distribution</h3>
+              <p class="feature-desc">
+                Precompiled standalone 64-bit Windows binary (~115 KB) with zero external runtime DLL requirements. Drop
+                it straight into any chess GUI and begin play immediately.
+              </p>
+              <span class="feature-tech-tag font-mono">bin/Mite.exe (~115 KB)</span>
+            </div>
+
+            <!-- Feature 6: Open-Source Repository -->
+            <div class="feature-card reveal-fade reveal-delay-2">
+              <div class="feature-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="6" y1="3" x2="6" y2="15"></line>
+                  <circle cx="18" cy="6" r="3"></circle>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <path d="M18 9a9 9 0 0 1-9 9"></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Audited Match Records & Docs</h3>
+              <p class="feature-desc">
+                Includes all 2,600 raw tournament PGN match records, an exhaustive 2,200-line architectural guide,
+                Makefile scripts, and reproducible benchmark testing pipelines.
+              </p>
+              <span class="feature-tech-tag font-mono">2,600 Verified PGN Records</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Benchmarks Section (Engineering Report) -->
+    <section class="section" id="benchmarks">
+      <div class="container-wide">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">VERIFIED TOURNAMENT BENCHMARKS</span>
+          <h2 class="section-title">Performance, measured carefully.</h2>
+          <p class="section-desc">
+            Engine strength depends on opponents, hardware, time controls, and test conditions. Benchmark results are
+            meaningful only when their methodology is clear.
+          </p>
+        </div>
+
+        <!-- Rating & Methodology Clarification Banner / Notice -->
+        <div class="benchmark-disclaimer-banner reveal-fade"
+          style="background-color: #205036 !important; background: linear-gradient(135deg, #1b432e 0%, #22563a 100%) !important; color: #ffffff !important; border-left: 5px solid #4ade80 !important;">
+          <div class="disclaimer-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <strong>Methodology & Rating Clarification:</strong> All benchmark data is derived from 13 automated match
+            series (2,600 games) using alternate-color pairings (100 as White, 100 as Black per 200-game match).
+            <strong>The approximately 2000 Elo figure is an unofficial internal experimental estimate</strong> based on
+            controlled testing against reference opponents (Stockfish calibrated to 2000 UCI limit, TSCP, and
+            Fairy-Max). It does not constitute a certified CCRL, CEGT, or FIDE rating list.
+          </div>
+        </div>
+
+        <!-- Key Highlights KPI Cards -->
+        <div class="benchmark-kpi-grid">
+          <div class="kpi-card reveal-fade">
+            <span class="kpi-label">Total Match Games</span>
+            <span class="kpi-value font-mono">2,600</span>
+            <span class="kpi-subtext">Across 13 match series</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-1">
+            <span class="kpi-label">Overall Match Score</span>
+            <span class="kpi-value kpi-accent font-mono">78.5%</span>
+            <span class="kpi-subtext">+1,947 −466 =187</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-2">
+            <span class="kpi-label">Stability Record</span>
+            <span class="kpi-value font-mono">0 / 0 / 0</span>
+            <span class="kpi-subtext">0 crashes · 0 forfeits · 0 illegal</span>
+          </div>
+          <div class="kpi-card reveal-fade reveal-delay-3">
+            <span class="kpi-label">Color Performance</span>
+            <span class="kpi-value font-mono">80.3% / 76.7%</span>
+            <span class="kpi-subtext">White (+1001) / Black (+946)</span>
+          </div>
+        </div>
+
+        <!-- Benchmark Native SVG Charts Grid -->
+        <div class="charts-grid">
+          <!-- Chart 1: Match Score Distribution -->
+          <div class="chart-panel reveal-fade">
+            <div class="chart-header">
+              <h3 class="chart-title">Match Score Distribution</h3>
+              <p class="chart-subtitle">Aggregate game outcomes (Wins, Draws, Losses) across opponents</p>
+            </div>
+            <div class="chart-canvas-wrapper" id="chartScoreDistContainer">
+              <!-- Rendered via js/benchmarks.js -->
+            </div>
+          </div>
+
+          <!-- Chart 2: Performance Across Time Controls -->
+          <div class="chart-panel reveal-fade reveal-delay-1">
+            <div class="chart-header">
+              <h3 class="chart-title">Performance Across Time Controls</h3>
+              <p class="chart-subtitle">Score percentage scaling as deliberation time increases (1s to 60s)</p>
+            </div>
+            <div class="chart-canvas-wrapper" id="chartTimeControlContainer">
+              <!-- Rendered via js/benchmarks.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Filterable, Sortable Table Controls -->
+        <div class="benchmark-table-controls">
+          <div class="filter-pills" role="tablist" aria-label="Filter benchmark matches by opponent">
+            <button class="benchmark-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Opponents
+              (13)</button>
+            <button class="benchmark-filter-btn" data-filter="stockfish" role="tab" aria-selected="false">Stockfish
+              (2000 Elo)</button>
+            <button class="benchmark-filter-btn" data-filter="tscp" role="tab" aria-selected="false">TSCP</button>
+            <button class="benchmark-filter-btn" data-filter="fairymax" role="tab"
+              aria-selected="false">Fairy-Max</button>
+          </div>
+          <div class="table-results-counter font-mono" id="benchmarkResultsCount">
+            Showing 13 of 13 verified match series (2,600 games)
+          </div>
+        </div>
+
+        <!-- Responsive Sortable Benchmark Table -->
+        <div class="table-responsive-wrapper reveal-fade">
+          <table class="benchmark-table" id="benchmarkTable" aria-label="Mite Chess Engine Benchmark Match Records">
+            <thead>
+              <tr>
+                <th data-sort="opponent" scope="col">Opponent & Version</th>
+                <th data-sort="timeControl" scope="col">Time Control</th>
+                <th data-sort="games" class="cell-numeric" scope="col">Games</th>
+                <th data-sort="wins" class="cell-numeric" scope="col">Wins (+)</th>
+                <th data-sort="draws" class="cell-numeric" scope="col">Draws (=)</th>
+                <th data-sort="losses" class="cell-numeric" scope="col">Losses (−)</th>
+                <th data-sort="scorePct" class="cell-numeric" scope="col">Score %</th>
+                <th scope="col">White / Black Score</th>
+                <th scope="col">Archive</th>
+              </tr>
+            </thead>
+            <tbody id="benchmarkTableBody">
+              <!-- Dynamically populated via js/benchmarks.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-footnote">
+          <span>Standard chess score formula: <code>Score % = (Wins + 0.5 × Draws) / Games × 100</code></span>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
+            <a href="mite-benchmarks.html" class="link-benchmarks-report"
+              style="color: var(--accent-forest); font-weight: 600; text-decoration: underline;">
+              View full interactive 2,600-game tournament benchmark report &rarr;
+            </a>
+            <a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/overview.md" target="_blank"
+              rel="noopener noreferrer" class="link-benchmarks-github text-muted" style="text-decoration: underline;">
+              Raw GitHub report &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Getting Started / Downloads -->
+    <section class="section" id="get-mite">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">DISTRIBUTION & DOWNLOADS</span>
+          <h2 class="section-title">Get Mite.</h2>
+          <p class="section-desc">
+            Choose how you want to experience Mite: run the standalone Windows binary, inspect and compile the C source
+            code, or play immediately in your browser.
+          </p>
+        </div>
+
+        <div class="downloads-grid">
+          <!-- Destination 1: Windows Executable -->
+          <div class="download-card download-card-featured reveal-fade">
+            <div class="download-card-header">
+              <span class="download-badge badge-featured">Standalone Binary</span>
+              <h3 class="download-card-title">Windows Executable</h3>
+              <p class="download-card-desc">
+                Precompiled 64-bit static executable. Completely self-contained with zero runtime dependencies. Ready to
+                install into Arena, Cutechess, or BanksiaGUI.
+              </p>
+            </div>
+
+            <div class="download-meta-list">
+              <div class="meta-row">
+                <span class="meta-label">File</span>
+                <span class="meta-value">Mite.exe</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Platform</span>
+                <span class="meta-value">Windows x64</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Binary Size</span>
+                <span class="meta-value">~115 KB</span>
+              </div>
+            </div>
+
+            <a href="https://github.com/v3ravani/mite-chess-engine/raw/main/bin/Mite.exe" download
+              class="btn btn-primary link-windows-binary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Mite.exe (~115 KB)</span>
+            </a>
+          </div>
+
+          <!-- Destination 2: Source Code on GitHub -->
+          <div class="download-card reveal-fade reveal-delay-1">
+            <div class="download-card-header">
+              <span class="download-badge badge-standard">Source Code</span>
+              <h3 class="download-card-title">C Source Repository</h3>
+              <p class="download-card-desc">
+                Complete ANSI C99 source code in a single file under 20 KB. Fully readable, inspectable, and portable
+                across GCC, Clang, and MSVC compilers.
+              </p>
+            </div>
+
+            <div class="download-meta-list">
+              <div class="meta-row">
+                <span class="meta-label">File</span>
+                <span class="meta-value">src/Mite.c</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Source Size</span>
+                <span class="meta-value">&lt; 20 KB (19.7 KB)</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">License</span>
+                <span class="meta-value">MIT Open Source</span>
+              </div>
+            </div>
+
+            <a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer"
+              class="btn btn-secondary link-github-repo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+              <span>Explore on GitHub</span>
+            </a>
+          </div>
+
+          <!-- Destination 3: In-Browser WebAssembly Demo -->
+          <div class="download-card reveal-fade reveal-delay-2">
+            <div class="download-card-header">
+              <span class="download-badge badge-standard">WebAssembly</span>
+              <h3 class="download-card-title">Play in the Browser</h3>
+              <p class="download-card-desc">
+                Experience Mite live with zero local installation on Hugging Face Spaces. Powered by Mite compiled
+                directly to WebAssembly in a dedicated Web Worker.
+              </p>
+            </div>
+
+            <div class="download-meta-list">
+              <div class="meta-row">
+                <span class="meta-label">Platform</span>
+                <span class="meta-value">Modern Web Browser</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Engine Module</span>
+                <span class="meta-value">mite.wasm (~60 KB)</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Throughput</span>
+                <span class="meta-value">800k–1.5M nodes/sec</span>
+              </div>
+            </div>
+
+            <a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank" rel="noopener noreferrer"
+              class="btn btn-secondary link-huggingface-demo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Play on Hugging Face</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. How to Play & GUI Setup -->
+    <section class="section" id="how-to-play">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">INTEGRATION & USAGE</span>
+          <h2 class="section-title">How to play and test Mite.</h2>
+          <p class="section-desc">
+            Mite is a pure UCI engine that communicates over standard input and output. It does not provide an internal
+            GUI, but integrates seamlessly into all major chess interfaces.
+          </p>
+        </div>
+
+        <div class="how-to-play-layout tab-container reveal-fade">
+          <!-- Tab Navigation -->
+          <nav class="tab-nav" aria-label="GUI Setup Guides">
+            <button class="tab-btn active" data-tab-target="tabBrowser" role="tab" aria-selected="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <span>In-Browser Play</span>
+            </button>
+            <button class="tab-btn" data-tab-target="tabArena" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+              <span>Arena GUI</span>
+            </button>
+            <button class="tab-btn" data-tab-target="tabCutechess" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>Cutechess GUI</span>
+            </button>
+            <button class="tab-btn" data-tab-target="tabCli" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              <span>Cutechess-CLI</span>
+            </button>
+            <button class="tab-btn" data-tab-target="tabTerminal" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M6 8h.01M10 8h.01"></path>
+              </svg>
+              <span>UCI Terminal</span>
+            </button>
+            <button class="tab-btn" data-tab-target="tabCompile" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>Build from Source</span>
+            </button>
+          </nav>
+
+          <!-- Tab Panels -->
+          <div class="tab-panels">
+            <!-- Panel 1: Browser -->
+            <div class="tab-panel active" id="tabBrowser" role="tabpanel">
+              <h3 class="feature-title">Play Instantly in Your Browser</h3>
+              <div class="guide-step-list">
+                <div class="guide-step">
+                  <span class="step-num">01.</span>
+                  <div>Open the official <a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank"
+                      rel="noopener noreferrer" class="link-huggingface-demo"
+                      style="color:var(--accent-forest); text-decoration:underline;">Hugging Face Space</a> in any
+                    desktop or mobile browser.</div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">02.</span>
+                  <div>Select your preferred time control: Bullet (1+0, 1+1), Blitz (3+0, 3+2, 5+0, 5+3), or Rapid
+                    (10+0, 15+10).</div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">03.</span>
+                  <div>Choose your side (White, Black, or Random) and start moving pieces on the board. The engine runs
+                    locally on your device via WebAssembly.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Arena GUI -->
+            <div class="tab-panel" id="tabArena" role="tabpanel" hidden>
+              <h3 class="feature-title">Configuring Mite in Arena Chess GUI</h3>
+              <div class="guide-step-list">
+                <div class="guide-step">
+                  <span class="step-num">01.</span>
+                  <div>Download <a href="https://github.com/v3ravani/mite-chess-engine/raw/main/bin/Mite.exe"
+                      class="link-windows-binary"
+                      style="color:var(--accent-forest); text-decoration:underline;">Mite.exe</a> from the repository.
+                  </div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">02.</span>
+                  <div>In Arena, navigate to the top menu: <code>Engines</code> &rarr;
+                    <code>Install New Engine...</code>
+                  </div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">03.</span>
+                  <div>Browse to and select <code>Mite.exe</code>. When prompted for engine protocol, select
+                    <strong>UCI</strong>.
+                  </div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">04.</span>
+                  <div>Start a new match or game against Mite under your desired time control.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Cutechess GUI -->
+            <div class="tab-panel" id="tabCutechess" role="tabpanel" hidden>
+              <h3 class="feature-title">Configuring Mite in Cutechess</h3>
+              <div class="guide-step-list">
+                <div class="guide-step">
+                  <span class="step-num">01.</span>
+                  <div>Open Cutechess and navigate to <code>Tools</code> &rarr; <code>Settings</code> &rarr;
+                    <code>Engines</code>.
+                  </div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">02.</span>
+                  <div>Click the <strong>+</strong> button to add a new engine, then browse to
+                    <code>bin/Mite.exe</code>.
+                  </div>
+                </div>
+                <div class="guide-step">
+                  <span class="step-num">03.</span>
+                  <div>Cutechess will query the engine over UCI and automatically populate its name and author details.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Cutechess CLI -->
+            <div class="tab-panel" id="tabCli" role="tabpanel" hidden>
+              <h3 class="feature-title">Automated Match Testing via Cutechess-CLI</h3>
+              <p class="feature-desc">
+                Run automated tournament matches against reference engines with reproducible PGN output:
+              </p>
+              <div class="code-block-container">
+                <div class="code-block-header">
+                  <span>Bash / Command Line</span>
+                  <button class="copy-btn" data-copy-target="codeCli" aria-label="Copy Cutechess-CLI match command">
+                    <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+                <pre class="code-pre" id="codeCli"><code>cutechess-cli -engine cmd=bin/Mite.exe name=Mite proto=uci \
+              -engine cmd=opponent.exe proto=uci \
+              -each tc=10+0.1 -rounds 200 -repeat -recover \
+              -pgnout match.pgn</code></pre>
+              </div>
+            </div>
+
+            <!-- Panel 5: Terminal UCI -->
+            <div class="tab-panel" id="tabTerminal" role="tabpanel" hidden>
+              <h3 class="feature-title">Direct UCI Terminal Interface</h3>
+              <p class="feature-desc">
+                Running <code>Mite.exe</code> in a terminal opens standard UCI listener mode. You can inspect responses
+                directly:
+              </p>
+              <div class="code-block-container">
+                <div class="code-block-header">
+                  <span>UCI Protocol Commands</span>
+                  <button class="copy-btn" data-copy-target="codeUci" aria-label="Copy UCI commands">
+                    <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+                <pre class="code-pre" id="codeUci"><code># Launch engine
+bin/Mite.exe
+
+# Handshake & probe
+uci
+isready
+
+# Setup position and calculate
+position startpos moves e2e4 e7e5
+go depth 8</code></pre>
+              </div>
+            </div>
+
+            <!-- Panel 6: Compile from source -->
+            <div class="tab-panel" id="tabCompile" role="tabpanel" hidden>
+              <h3 class="feature-title">Building from Source</h3>
+              <p class="feature-desc">
+                Mite compiles with any standard C compiler without external dependencies:
+              </p>
+              <div class="code-block-container">
+                <div class="code-block-header">
+                  <span>Compiler Commands</span>
+                  <button class="copy-btn" data-copy-target="codeCompile" aria-label="Copy compilation commands">
+                    <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+                <pre class="code-pre" id="codeCompile"><code># Using Makefile (MinGW / POSIX)
+mingw32-make
+
+# GCC (MinGW / Linux)
+gcc -O3 -fomit-frame-pointer src/Mite.c -o bin/Mite.exe
+
+# Clang / LLVM
+clang -O3 -flto src/Mite.c -o bin/Mite.exe
+
+# MSVC (Visual C++)
+cl /O2 /Oi /Ot /GS- src\Mite.c /Fe:bin\Mite.exe</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. About the Developer -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal-fade">
+          <span class="section-eyebrow">CREDITS & AUTHOR</span>
+          <h2 class="section-title">Built by an independent developer.</h2>
+          <p class="section-desc">
+            Mite is an independent chess-engine project exploring what can be achieved with a compact C implementation.
+          </p>
+        </div>
+
+        <div class="about-card reveal-fade">
+          <div class="about-info">
+            <div>
+              <h3 class="developer-name">Viraj Ravani</h3>
+              <span class="developer-role">Creator and Developer</span>
+            </div>
+            <p class="about-desc">
+              Viraj is a developer specializing in systems programming, algorithmic efficiency, and interactive web
+              tools. Mite represents an ongoing effort to push the boundaries of algorithmic density in chess computing.
+            </p>
+            <div class="about-links">
+              <a href="https://virajravani.in/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm link-author-portfolio">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+                <span>Portfolio (virajravani.in)</span>
+              </a>
+              <a href="https://github.com/v3ravani" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm link-author-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                <span>GitHub Profile</span>
+              </a>
+              <a href="https://www.linkedin.com/in/virajravani/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm link-author-linkedin">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="about-meta-panel">
+            <span class="about-meta-title">Independence & Licensing</span>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6;">
+              Mite is licensed under the terms of the <strong>MIT License</strong>. Reference engines (Stockfish, TSCP,
+              Fairy-Max) are trademarks and intellectual property of their respective creators. Mention does not imply
+              affiliation or official endorsement.
+            </p>
+            <div
+              style="border-top: 1px solid var(--border-default); padding-top: var(--space-3); font-size: 0.8125rem;">
+              <span class="text-muted">Repository:</span>
+              <a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer"
+                class="link-github-repo font-mono" style="color: var(--accent-forest); margin-left: 4px;">
+                v3ravani/mite-chess-engine
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11. Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <a href="#hero" class="brand-link" aria-label="Mite Chess Engine Home">
+          <img src="mite-assets/images/mite_logo.png" alt="Mite Chess Engine Logo" class="brand-logo-img" width="16"
+            height="32">
+          <span class="brand-name">Mite</span>
+          <span class="brand-version">v2.0</span>
+        </a>
+        <p class="footer-brand-desc">
+          A compact chess engine targeting ~2000 Elo playing strength with under 20 KB of ANSI C source code.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-link-list">
+          <li><a href="#overview" class="footer-link">Overview</a></li>
+          <li><a href="#features" class="footer-link">Features</a></li>
+          <li><a href="mite-benchmarks.html" class="footer-link">Benchmarks Report</a></li>
+          <li><a href="#get-mite" class="footer-link">Downloads</a></li>
+          <li><a href="#how-to-play" class="footer-link">How to Play</a></li>
+          <li><a href="#about" class="footer-link">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Documentation</h4>
+        <ul class="footer-link-list">
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/ENGINE_NOTES.md" target="_blank"
+              rel="noopener noreferrer" class="footer-link link-engine-notes">Engine Notes (2.2k lines)</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/SETUP.md" target="_blank"
+              rel="noopener noreferrer" class="footer-link link-setup-guide">Setup & Testing Guide</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/benchmarks/overview.md" target="_blank"
+              rel="noopener noreferrer" class="footer-link link-benchmarks-report">Benchmark Report</a></li>
+          <li><a href="https://github.com/v3ravani/mite-chess-engine/blob/main/LICENSE" target="_blank"
+              rel="noopener noreferrer" class="footer-link link-license">MIT License</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">External Links</h4>
+        <ul class="footer-link-list">
+          <li><a href="https://github.com/v3ravani/mite-chess-engine" target="_blank" rel="noopener noreferrer"
+              class="footer-link link-github-repo">GitHub Repository</a></li>
+          <li><a href="https://huggingface.co/spaces/virajravani/mite-chess" target="_blank" rel="noopener noreferrer"
+              class="footer-link link-huggingface-demo">Hugging Face Live Demo</a></li>
+          <li><a href="https://virajravani.in/" target="_blank" rel="noopener noreferrer"
+              class="footer-link link-author-portfolio">Viraj Ravani Portfolio</a></li>
+          <li><a href="https://www.linkedin.com/in/virajravani/" target="_blank" rel="noopener noreferrer"
+              class="footer-link link-author-linkedin">LinkedIn Profile</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; <span id="currentYear">2026</span> Viraj Ravani. Released under the MIT License.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: No modules, compatible with direct file:// open -->
+  <script src="mite-config.js"></script>
+  <script src="mite-benchmarks.js"></script>
+  <script src="mite-main.js"></script>
+</body>
+
+</html>
